@@ -1,0 +1,9 @@
+{
+  "name": "VariantAnnouncements",
+  "version_number": "1.1.2",
+  "website_url": "https://github.com/VariantCreator/VariantAnnouncements",
+  "description": "Server announcements with schedules, events, welcome sequences, rotating tips and progression milestones. Optional admin editor; players need no client mod.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2350"
+  ]
+}

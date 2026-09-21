@@ -1,0 +1,18 @@
+Variant Announcements
+Copyright (c) 2026 Dova / VariantMods. All rights reserved.
+
+You may download, install and use the official mod in your game and on your
+servers. You may make copies needed for installation and backups.
+
+You need written permission from Dova / VariantMods to reuse this mod's own
+source code, publish modified versions, redistribute the mod or sell it.
+You may share links to the official download page.
+
+The mod is provided as is, without warranty. Use it at your own risk.
+
+Third-party code keeps its own license. In particular, the embedded ServerSync
+code remains under its MIT license in THIRD_PARTY_NOTICES.txt. The restrictions
+above do not limit rights granted by those third-party licenses.
+
+This license does not revoke permissions for copies previously distributed
+under the MIT license.
