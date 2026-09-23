@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.3
+
+- Added boss-kill announcements, including repeat kills: "Dova defeated Eikthyr!"
+- Co-op kills name the credited fighters together.
+- Added boss message controls under Milestones.
+- Added optional Odin Hates Litter start and success notices under Events, with separate text and style settings.
+- Boss notices work independently of WAP unlocks and avoid duplicate first-unlock messages.
+- Vanilla mode is automatic when WAP is not installed. Players still do not need the mod.
+- Keeps existing messages and schedules.
+
 ## 1.1.2
 
 - Added dated events and maintenance notices with countdowns. They stop after their scheduled time.

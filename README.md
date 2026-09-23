@@ -1,4 +1,4 @@
-# Variant Announcements 1.1.2
+# Variant Announcements 1.1.3
 
 Send scheduled messages, welcome new players and remind everyone about upcoming restarts. Choose your message text, colour, size and screen position from an in-game menu.
 
@@ -31,7 +31,7 @@ Your movement and attacks are blocked while the menu is open. The world keeps ru
 - **Restarts:** send reminders before a planned restart. This does not restart the server.
 - **Maintenance / Events:** choose a date, time and countdown warnings. They stop afterward. Turn a rule off and save to cancel it. Older recurring maintenance notices stay available.
 - **Tips:** shuffle messages by category without repeating a tip until the others have been used.
-- **Milestones:** announce new boss or progression milestones.
+- **Milestones:** announce boss kills and new progression milestones.
 
 Each message can use its own color, size and position. Presets make warnings, events and tips easy to style.
 Quiet hours silence tips and normal notices. Important and urgent messages still get through.
@@ -52,15 +52,50 @@ Old ScheduledMessages settings are imported on first use if you do not already h
 
 To update, close Valheim and stop the server, replace the DLL on both, then start them again. Keep your config files and only one copy of the mod in each plugins folder.
 
-Use 1.1.2 on the server and the admin's PC. Regular players and crossplay players do not need this mod. Messages use Valheim's normal HUD; keep crossplay enabled on your server.
+Use 1.1.3 on the server and the admin's PC. Regular players and crossplay players do not need this mod. Messages use Valheim's normal HUD; keep crossplay enabled on your server.
+
+## Boss kills
+
+Boss announcements are on by default, including repeat kills. Change them under **Milestones → Boss kills**.
+The default text is **{player} defeated {boss}!** For example: **Dova defeated Eikthyr!**
+
+Co-op kills list the fighters credited by the game together. This is shared kill credit, not a claim about who landed the final hit.
+The server needs the boss's death and player-credit data. A missing death update, an admin removal or a death with no credited player is skipped.
+Boss first-unlock messages are skipped while boss-kill announcements are enabled, so one defeat does not send both.
+
+## Vanilla and crossplay servers
+
+Install BepInEx and Announcements on the server. Players can join with unmodded clients, including crossplay.
+WAP, Config Manager and the Announcements client are not required for delivery.
+
+Without WAP, vanilla mode is automatic: boss notices use the game's death data and progression milestones use world keys.
+Schedules, welcomes, tips, events and restart reminders work the same way.
+With no admin client, edit `BepInEx/config/com.variantmods.announcements.messages.json` on the server. Settings reload while it is running.
+The `BossKills` section controls the message, style and whether boss notices are enabled.
 
 ## World Advancement Progression
 
 If WAP is installed on the server, new private-key progress can trigger milestone messages. Announcements does not unlock anything or change WAP settings.
 Loading a character's existing keys does not replay their achievements. Choose the first new completion for the world, or each player's first completion.
 Without WAP, milestones follow the world's global keys.
+Boss kills use the same native death tracking with or without WAP. Repeat kills do not need another progression unlock.
 
 Visits and milestone history are saved separately for each world in the mod's `history` JSON file beside your settings. Keep that file to avoid treating returning players as new visitors.
+
+## Odin Hates Litter
+
+Under **Events → Odin Hates Litter**, turn on start notices, completion notices, or both. They are off by default.
+Each has its own text, colour, size and position.
+
+- **{player} started {event}!**
+- **{player} completed {event}!**
+
+Here, `{player}` means the event starter. Cleanup, wave, boss and Ocean events use the name supplied by Odin Hates Litter.
+Completion means the event succeeded, including when rewards are switched off. Cancelling, failing or restoring an event does not create a false victory or another start notice.
+
+Use the Odin Hates Litter update that includes announcement events. The menu shows whether the server has support.
+If Odin Hates Litter is missing or too old, these notices stay inactive and other announcements keep working.
+Odin Hates Litter's own install requirements still apply; this option does not make that mod server-only.
 
 ## Permissions
 
