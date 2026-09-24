@@ -1,104 +1,103 @@
 # Variant Announcements
 
-Scheduled messages, boss kill notices, welcomes and restart reminders for Valheim servers.
+Send scheduled messages, welcome players, announce boss kills and warn everyone before a restart.
 
-Players see announcements in Valheim's normal HUD without installing this mod. Server admins can use an optional in-game editor to change messages for everyone.
+Install it on the server. Players see messages in Valheim's normal HUD without installing the mod, including vanilla and crossplay players. Admins can install it on their PC to edit messages in game.
 
-**[Download Variant Announcements](https://github.com/VariantCreator/VariantAnnouncements/releases/latest)** — choose `VariantAnnouncements.zip` from the release assets.
+**[Download VariantAnnouncements.zip](https://github.com/VariantCreator/VariantAnnouncements/releases/latest/download/VariantAnnouncements.zip)**
 
 ## Install
 
 1. Install BepInEx for Valheim on the server.
-2. Extract `VariantAnnouncements.dll` into `BepInEx/plugins/VariantAnnouncements/`.
+2. Put `VariantAnnouncements.dll` in `BepInEx/plugins/VariantAnnouncements/`.
 3. Restart the server.
 
-Regular players do not need Announcements or Config Manager. Vanilla clients and crossplay players receive the same messages. Keep crossplay enabled in the server settings if console players will be joining.
+Keep crossplay enabled on the server if console players will be joining.
 
-ServerSync is included. World Advancement Progression and Odin Hates Litter are optional.
+ServerSync is included. World Advancement Progression (WAP) and Odin Hates Litter are optional.
 
-## Set up messages
+## Change messages
 
 ### In-game editor
 
-Install the same version of Announcements and a compatible Config Manager on the admin's PC. Join the server, open Config Manager, and select **Variant Announcements → Open admin editor**.
+Install the same version of Announcements and Config Manager on your PC. Join the server, open Config Manager, then choose **Variant Announcements → Open admin editor**.
 
-Only the host and players in the server's `adminlist.txt` can save changes.
+Only the host and players in the server's `adminlist.txt` can save changes. Saved settings apply to everyone.
 
-- **Reload from server:** load the saved settings.
-- **Save to server:** apply changes to everyone's announcements.
-- **Test this privately:** preview a message only for the admin using the editor.
-- **Send this now:** send the selected message to everyone online.
-- **Undo last save:** restore the previous settings.
+- **Reload from server:** discard your edits and load the saved settings.
+- **Save to server:** save your changes.
+- **Test this privately:** preview a message just for you.
+- **Send this now:** send a message to everyone online.
+- **Undo last save:** bring back the previous settings.
 
 The menu blocks movement and attacks while open. The world keeps running.
 
 ### Server config file
 
-The server can run without an admin client. Edit this file after the first start:
+You can also edit this file after the server's first start:
 
 `BepInEx/config/com.variantmods.announcements.messages.json`
 
-Valid changes reload while the server is running. A backup of the previous save is kept beside the file.
+Valid changes reload when saved. A backup of the previous settings is kept beside the file.
 
-## Message options
+## Messages
 
-- **Daily and repeating:** send messages on selected weekdays or at regular intervals.
-- **Welcome:** greet new visitors with rules or an introduction, and returning players with a shorter message.
-- **Restarts:** send countdown warnings for planned restarts. The mod does not restart the server.
-- **Maintenance and events:** schedule a date, time and countdown warnings.
-- **Tips:** rotate through messages without repeating one until the others have been used.
-- **Milestones:** announce boss kills and progression milestones.
-- **Upcoming:** check the next scheduled messages.
+- Daily messages and repeating reminders.
+- Separate welcomes for new and returning players.
+- Restart, maintenance and event countdowns. These are reminders; the mod does not restart the server.
+- Rotating tips that show each message before repeating.
+- Boss kills and progression milestones.
+- An **Upcoming** tab to see which messages are next.
 
-Each message can have its own color, size and screen position. Quiet hours silence routine notices while important warnings still get through.
+Choose the text, color, size and position for each message. Use quiet hours to silence routine messages while keeping important warnings.
 
-## Boss announcements
+## Boss kills
 
-Boss notices are enabled by default, including repeat kills. Change the text and style under **Milestones → Boss kills**.
+Boss notices are on by default and include repeat kills. Change them under **Milestones → Boss kills**.
 
 Default message: **{player} defeated {boss}!**
 
-Co-op notices name the fighters credited by the game together. Boss-kill notices replace matching first-unlock notices to avoid sending both for one defeat.
+When players fight together, the notice names the fighters credited by the game. Matching progression notices are skipped so one kill does not send two messages.
 
-The server must receive the boss's death and player-credit data. Admin removals, deaths without a credited player and missing death updates are skipped.
+The server needs the game's death and player-credit data to send a notice. Bosses removed by an admin or killed without a credited player are skipped.
 
 ## World Advancement Progression
 
-WAP private progress can trigger milestone messages. Choose the first completion in the world or each player's first completion. Existing character progress is not announced again when loading in.
+With WAP installed, milestones can follow each player's progress. Choose the first completion in the world or each player's first completion. Joining with existing progress does not replay old milestones.
 
-Without WAP, progression milestones use vanilla world progress automatically. Boss-kill notices work independently of progression unlocks.
+Without WAP, milestones use vanilla world progress automatically. Boss kills are announced separately from progression unlocks.
 
 ## Odin Hates Litter
 
-Announce when a player starts an Odin Hates Litter event and when the event is completed successfully.
+With Odin Hates Litter 1.5.3 or later, announce when a player starts an event and when it is completed:
 
 - **{player} started {event}!**
 - **{player} completed {event}!**
 
-Enable either or both under **Events → Odin Hates Litter**. Each notice has its own text, color, size and position. They are off by default.
+Turn these on under **Events → Odin Hates Litter**. Start and completion notices have separate text and style settings. Both are off by default.
 
-`{player}` is the event starter, and `{event}` is the event or bin name. Successful events can be announced even with rewards turned off. Cancelled and failed events do not send a completion notice.
+`{player}` is the player who started it. `{event}` is the event or bin name. Successful events send a completion notice even with rewards off. Cancelled or failed events do not.
 
-Odin Hates Litter's own installation requirements still apply.
+Follow Odin Hates Litter's installation instructions too.
 
 ## Message placeholders
 
-Use `{player}`, `{server}` and `{time}` in message text. Boss notices support `{boss}`, countdowns support `{minutes}`, and events support `{event}`. Progression messages support `{actor}` and `{milestone}`.
+Use `{player}`, `{server}` and `{time}` in messages. Boss notices also use `{boss}`, countdowns use `{minutes}`, events use `{event}`, and progression notices use `{actor}` and `{milestone}`.
 
-Messages also support `<b>bold</b>`, `<color=#FFAA00>color</color>` and `<size=30>text size</size>`.
+For formatting, use `<b>bold</b>`, `<color=#FFAA00>color</color>` or `<size=30>text size</size>`.
 
 ## Time zone
 
-Use **-4** for UTC-4, **+11** for UTC+11, or **0** for UTC. These offsets stay fixed all year.
+Enter **-4**, **+11** or **0** for a fixed UTC offset. Use **America/New_York** to follow daylight saving changes.
 
-Use a name such as **America/New_York** to follow daylight saving changes. Enter restart times in 24-hour format, such as **05:00, 15:00**.
+Enter times in 24-hour format: **05:00, 15:00** means 5 AM and 3 PM.
 
 ## Updating
 
-Stop the server and close Valheim before replacing the DLL. Update the server and any optional admin clients to the same version. Keep only one copy of `VariantAnnouncements.dll` in each installation.
+Stop the server and close Valheim before replacing the DLL. Use the same version on the server and any admin PCs. Keep only one copy of `VariantAnnouncements.dll` in each installation.
 
-Keep the config and history files to preserve messages, returning-player records and progression history. Existing ScheduledMessages settings are imported on first use when no Announcements settings file exists.
+Keep your config and history files to save messages, player visits and milestone history. Old ScheduledMessages settings are imported on first use if no Announcements settings exist.
 
 ## License
 
-Free to install and use in games and on servers. See [LICENSE.txt](LICENSE.txt) for modification and redistribution terms.
+Free to install and use. See [LICENSE.txt](https://github.com/VariantCreator/VariantAnnouncements/blob/main/LICENSE.txt) for the full terms.

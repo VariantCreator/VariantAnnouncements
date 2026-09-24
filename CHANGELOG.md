@@ -2,46 +2,42 @@
 
 ## 1.1.3
 
-- Added boss-kill announcements, including repeat kills: "{player} defeated {boss}!"
-- Co-op kills name the credited fighters together.
-- Added boss message controls under Milestones.
-- Added optional Odin Hates Litter start and completion notices under Events, with separate text and style settings.
-- Boss notices work independently of WAP unlocks and avoid duplicate first-unlock messages.
-- Vanilla mode is automatic when WAP is not installed. Players still do not need the mod.
-- Keeps existing messages and schedules.
+- Added boss kill messages: **{player} defeated {boss}!** Repeat kills count too.
+- Group kills name the fighters credited by the game.
+- Added boss message settings under **Milestones → Boss kills**.
+- Added Odin Hates Litter start and completion messages under **Events → Odin Hates Litter**. Both are optional and off by default.
+- Boss kills no longer send a second message for the same progression unlock.
+- Uses vanilla world progress when WAP is absent.
 
 ## 1.1.2
 
-- Added dated events and maintenance notices with countdowns. They stop after their scheduled time.
-- Added weekday schedules, quiet hours and per-message styles.
-- Added first-visit welcome sequences and shuffled tip categories.
-- Added milestone messages, including World Advancement Progression support.
-- Added upcoming messages, individual previews, send-now, duplicate, disable and undo.
-- Important warnings take priority, with spacing between messages for each player.
-- Keeps existing settings. Players still do not need the mod.
+- Added event and maintenance countdowns for a chosen date and time.
+- Added weekday schedules, quiet hours and separate styles for each message.
+- Added welcomes for new players and shuffled tips.
+- Added milestone messages with optional WAP support.
+- Added message previews, send now, duplicate, disable and undo.
+- Added an Upcoming tab and spacing between messages. Important warnings go first.
 
 ## 1.1.1
 
 - Fixed the blank admin menu and errors when opening it.
-- Fixed menu layout when switching tabs or adding and removing messages.
-- General has color presets, text sizes from 10–64 and an appearance preview.
-- Restarts and Maintenance have their own tabs.
-- Messages support bold, color and size tags.
-- Keeps your existing messages and server settings.
+- Fixed the layout when switching tabs or adding and removing messages.
+- Added color presets, text sizes from 10–64 and an appearance preview.
+- Split Restarts and Maintenance into separate tabs.
+- Added bold, color and size tags for messages.
 
 ## 1.1.0
 
-- Open the editor through Config Manager. Removed the Ctrl+F8 shortcut.
-- Close Shudnal's Config Manager when opening the editor so it cannot keep movement blocked behind the menu.
-- Restore movement after closing the menu on Valheim 1.0.14.
-- Fix the false "Settings changed" error when editing a Linux server from Windows.
-- Stop advertising Announcements as a client requirement on other mods' mismatch screens.
-- Safer menu closing when playing with other mods.
+- Moved the editor to Config Manager and removed the Ctrl+F8 shortcut.
+- Fixed movement staying blocked after closing the editor, including with Shudnal's Config Manager.
+- Fixed false "Settings changed" errors when saving to a Linux server.
+- Fixed Announcements appearing as a required client mod on other mods' mismatch screens.
+- Fixed problems when closing the menu alongside other mods.
 
 ## 1.0.0
 
-- Schedule messages, welcome players and send restart reminders.
-- Change message text, colour, size and position in the admin menu.
-- Save settings for everyone with server sync.
-- Enter simple time zones like `-4` or `+11`.
-- Import your old ScheduledMessages settings automatically.
+- Added scheduled messages, player welcomes and restart reminders.
+- Added an admin menu for message text, color, size and position.
+- Added server sync so saved settings apply to everyone.
+- Added time zone offsets such as `-4` and `+11`.
+- Added automatic import of old ScheduledMessages settings.

@@ -2,7 +2,7 @@
   "name": "VariantAnnouncements",
   "version_number": "1.1.3",
   "website_url": "https://github.com/VariantCreator/VariantAnnouncements",
-  "description": "Server announcements, boss kills, schedules, welcomes and optional Odin Hates Litter event notices. Optional admin editor; players need no Announcements client.",
+  "description": "Scheduled messages, boss kill notices and restart reminders for Valheim servers. Players don't need the mod.",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2350"
   ]
