@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0
+
+- Grouped the editor into five sections with shorter rows of tabs.
+- Added message search, collapsible appearance controls and an unsaved-changes reminder.
+- Added recent message history with reasons for skipped notices.
+- Added minimum-player rules for messages.
+- Added personal restart warnings for players who join close to a restart.
+- Added optional boss totals, saved separately for each world.
+- Upcoming now shows server time, time zone and notices blocked by quiet hours or player limits.
+- Keeps existing messages and schedules. Update the server and any admin clients together.
+
 ## 1.1.3
 
 - Added boss kill messages: **{player} defeated {boss}!** Repeat kills count too.

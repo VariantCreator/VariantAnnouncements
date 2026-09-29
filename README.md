@@ -24,6 +24,16 @@ Install the same version of Announcements and Config Manager on your PC. Join th
 
 Only the host and players in the server's `adminlist.txt` can save changes. Saved settings apply to everyone.
 
+The editor has five sections:
+
+- **Overview:** upcoming notices and recent message history.
+- **Messages:** welcomes, daily messages, repeating reminders and tips.
+- **Schedules:** restarts, maintenance and dated events.
+- **World events:** boss kills, progression milestones and Odin Hates Litter.
+- **Settings:** server details, default appearance and quiet hours.
+
+Use **Find messages** to search across sections. Click a message to expand or collapse it. Appearance controls stay tucked away until you need them. Unsaved changes are marked above the save button.
+
 - **Reload from server:** discard your edits and load the saved settings.
 - **Save to server:** save your changes.
 - **Test this privately:** preview a message just for you.
@@ -47,19 +57,33 @@ Valid changes reload when saved. A backup of the previous settings is kept besid
 - Restart, maintenance and event countdowns. These are reminders; the mod does not restart the server.
 - Rotating tips that show each message before repeating.
 - Boss kills and progression milestones.
-- An **Upcoming** tab to see which messages are next.
+- An **Upcoming** tab showing server time, time zone and which notices would be skipped by quiet hours or player limits.
 
 Choose the text, color, size and position for each message. Use quiet hours to silence routine messages while keeping important warnings.
 
+Set **Minimum players online** on a message to send it only when enough players are online. Use **0** for any player count. Skipped notices are not held for later; repeating messages try again at their next interval.
+
+**Overview → History** shows recent sends and skips from the current server session. It includes the recipient and reasons such as quiet hours, player limits or an expired message. Sent means the server handed the message to Valheim; it is not a receipt from the player's screen.
+
+### Restart catch-up
+
+Players joining near a restart get a personal warning with the time remaining. This is on by default within the last **15 minutes**, limited by your configured warning times. Change it under **Schedules → Restarts**. Joining at the same time as a scheduled warning does not send both.
+
 ## Boss kills
 
-Boss notices are on by default and include repeat kills. Change them under **Milestones → Boss kills**.
+Boss notices are on by default and include repeat kills. Change them under **World events → Boss kills**.
 
 Default message: **{player} defeated {boss}!**
 
 When players fight together, the notice names the fighters credited by the game. Matching progression notices are skipped so one kill does not send two messages.
 
 The server needs the game's death and player-credit data to send a notice. Bosses removed by an admin or killed without a credited player are skipped.
+
+Boss totals are optional and off by default. Under **World events → Boss kills**, enable **Announce boss total** and choose an interval, such as every 10 defeats of each boss.
+
+Default message: **{boss} has been defeated {count} times!**
+
+Counts are saved per world and start with 1.2.0. Previous kills are not guessed from WAP or world progress.
 
 ## World Advancement Progression
 
@@ -74,7 +98,7 @@ With Odin Hates Litter 1.5.3 or later, announce when a player starts an event an
 - **{player} started {event}!**
 - **{player} completed {event}!**
 
-Turn these on under **Events → Odin Hates Litter**. Start and completion notices have separate text and style settings. Both are off by default.
+Turn these on under **World events → Odin Hates Litter**. Start and completion notices have separate text and style settings. Both are off by default.
 
 `{player}` is the player who started it. `{event}` is the event or bin name. Successful events send a completion notice even with rewards off. Cancelled or failed events do not.
 
@@ -82,7 +106,7 @@ Follow Odin Hates Litter's installation instructions too.
 
 ## Message placeholders
 
-Use `{player}`, `{server}` and `{time}` in messages. Boss notices also use `{boss}`, countdowns use `{minutes}`, events use `{event}`, and progression notices use `{actor}` and `{milestone}`.
+Use `{player}`, `{server}` and `{time}` in messages. Boss notices also use `{boss}` and `{count}`, countdowns use `{minutes}`, events use `{event}`, and progression notices use `{actor}` and `{milestone}`.
 
 For formatting, use `<b>bold</b>`, `<color=#FFAA00>color</color>` or `<size=30>text size</size>`.
 
@@ -94,7 +118,7 @@ Enter times in 24-hour format: **05:00, 15:00** means 5 AM and 3 PM.
 
 ## Updating
 
-Stop the server and close Valheim before replacing the DLL. Use the same version on the server and any admin PCs. Keep only one copy of `VariantAnnouncements.dll` in each installation.
+Stop the server and close Valheim before replacing the DLL. Update the server and any admin PCs to **1.2.0** together. Older admin editors cannot edit the new settings. Keep only one copy of `VariantAnnouncements.dll` in each installation.
 
 Keep your config and history files to save messages, player visits and milestone history. Old ScheduledMessages settings are imported on first use if no Announcements settings exist.
 
