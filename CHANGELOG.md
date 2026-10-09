@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.0
+
+- Rebuilt the editor with wood panels, bronze trim and a left menu.
+- Added boss summon notices naming the player who made the offering.
+- Replaced native boss broadcasts with your summon and kill messages, with a fallback when credit is unavailable.
+- Optional installed clients can also prevent the local native boss notice from flashing first.
+- Added one-time and weekly maintenance schedules, quick times, countdown presets and a next-notice summary.
+- Added vanilla, regular and HUGE tip presets with previews and duplicate-safe imports.
+- Kept saved messages, schedules and boss totals. Update the server and any admin clients together.
+
 ## 1.2.0
 
 - Grouped the editor into five sections with shorter rows of tabs.

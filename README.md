@@ -1,6 +1,6 @@
 # Variant Announcements
 
-Send scheduled messages, welcome players, announce boss kills and warn everyone before a restart.
+Send scheduled messages, welcome players, announce boss summons and kills, and warn everyone before a restart.
 
 Install it on the server. Players see messages in Valheim's normal HUD without installing the mod, including vanilla and crossplay players. Admins can install it on their PC to edit messages in game.
 
@@ -24,20 +24,20 @@ Install the same version of Announcements and Config Manager on your PC. Join th
 
 Only the host and players in the server's `adminlist.txt` can save changes. Saved settings apply to everyone.
 
-The editor has five sections:
+The editor uses wood panels, bronze trim and a left menu with five sections:
 
 - **Overview:** upcoming notices and recent message history.
 - **Messages:** welcomes, daily messages, repeating reminders and tips.
-- **Schedules:** restarts, maintenance and dated events.
-- **World events:** boss kills, progression milestones and Odin Hates Litter.
+- **Schedules:** restarts, one-time or weekly maintenance, and dated events.
+- **World events:** boss summons and kills, progression milestones and Odin Hates Litter.
 - **Settings:** server details, default appearance and quiet hours.
 
 Use **Find messages** to search across sections. Click a message to expand or collapse it. Appearance controls stay tucked away until you need them. Unsaved changes are marked above the save button.
 
 - **Reload from server:** discard your edits and load the saved settings.
 - **Save to server:** save your changes.
-- **Test this privately:** preview a message just for you.
-- **Send this now:** send a message to everyone online.
+- **Test selected privately:** preview a message just for you.
+- **Send selected now:** send a message to everyone online.
 - **Undo last save:** bring back the previous settings.
 
 The menu blocks movement and attacks while open. The world keeps running.
@@ -69,21 +69,48 @@ Set **Minimum players online** on a message to send it only when enough players 
 
 Players joining near a restart get a personal warning with the time remaining. This is on by default within the last **15 minutes**, limited by your configured warning times. Change it under **Schedules → Restarts**. Joining at the same time as a scheduled warning does not send both.
 
-## Boss kills
+## Maintenance
 
-Boss notices are on by default and include repeat kills. Change them under **World events → Boss kills**.
+Open **Schedules → Maintenance** and choose **One-time**, **Weekly** or **Existing notices**.
 
-Default message: **{player} defeated {boss}!**
+- Schedule maintenance in 15 minutes, 30 minutes or an hour, or choose a date and time.
+- Use weekly schedules for selected weekdays, with a start date and countdown warnings.
+- Pick a countdown preset or enter your own warning minutes.
+- See the next maintenance time and next notice in the server's time zone.
+- Cancel or move a schedule, then **Save to server**.
+
+Existing maintenance messages stay available under **Existing notices**. These settings send reminders; your server host handles the actual shutdown or restart.
+
+## Tip presets
+
+Open **Messages → Tips → Browse tip presets**. Choose **Vanilla basics**, **Variant regular** or **Variant HUGE** and preview the categories before importing.
+
+The regular and HUGE tips cover your packs' progression, portals, resurrection, storage, gear and building. HUGE also includes its expanded world and winter rules. Review them against your server settings before enabling them.
+
+**Add missing preset tips** keeps your messages and skips duplicates. New categories start paused. Enable the categories you want, choose their intervals, then save.
+
+## Boss notices
+
+Change these under **World events → Bosses**. Summon and kill notices are on by default:
+
+- **{player} summoned {boss}!**
+- **{player} defeated {boss}!**
+
+Summon notices name the player whose altar offering was accepted. Failed offerings do not send a notice. Kill notices include repeat kills.
 
 When players fight together, the notice names the fighters credited by the game. Matching progression notices are skipped so one kill does not send two messages.
 
 The server needs the game's death and player-credit data to send a notice. Bosses removed by an admin or killed without a credited player are skipped.
 
-Boss totals are optional and off by default. Under **World events → Boss kills**, enable **Announce boss total** and choose an interval, such as every 10 defeats of each boss.
+Boss totals are optional and off by default. Under **World events → Bosses**, enable **Announce boss total** and choose an interval, such as every 10 defeats of each boss.
 
 Default message: **{boss} has been defeated {count} times!**
 
-Counts are saved per world and start with 1.2.0. Previous kills are not guessed from WAP or world progress.
+Counts are saved per world. Existing totals carry over. Earlier kills are not guessed from WAP or world progress.
+
+**Replace Valheim's boss summon and defeat notices** replaces the native broadcast with your message. Unrelated HUD messages still work. If the server cannot identify a successful summon or credited death, the native notice is kept.
+
+A vanilla player simulating the boss can briefly see Valheim's local notice before the server receives it. Installing Announcements on that player's PC allows the local notice to be replaced too. Other players can keep using the server-only setup.
 
 ## World Advancement Progression
 
@@ -118,7 +145,7 @@ Enter times in 24-hour format: **05:00, 15:00** means 5 AM and 3 PM.
 
 ## Updating
 
-Stop the server and close Valheim before replacing the DLL. Update the server and any admin PCs to **1.2.0** together. Older admin editors cannot edit the new settings. Keep only one copy of `VariantAnnouncements.dll` in each installation.
+Stop the server and close Valheim before replacing the DLL. Update the server and any admin PCs to **1.3.0** together. Older admin editors cannot edit the new settings. Keep only one copy of `VariantAnnouncements.dll` in each installation.
 
 Keep your config and history files to save messages, player visits and milestone history. Old ScheduledMessages settings are imported on first use if no Announcements settings exist.
 
